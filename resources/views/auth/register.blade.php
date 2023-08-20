@@ -22,24 +22,34 @@
                               novalidate="novalidate">
                             @csrf
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="fullname" placeholder="Full Name"
-                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Username"
-                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Full Name"
+                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" value="{{old("name")}}">
+                                @error("name")
+                                    <p class="text-left" style="color: red">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="email" class="form-control" id="name" name="email" placeholder="Email"
-                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" value="{{old("email")}}">
+                                @error("email")
+                                <p class="text-left" style="color: red">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="password" class="form-control" id="name" name="name" placeholder="Password"
+                                <input type="password" class="form-control" id="name" name="password"
+                                       placeholder="Password"
                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                                @error("password")
+                                <p class="text-left" style="color: red">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="password" class="form-control" id="name" name="confirmed" placeholder="Confirm Password"
+                                <input type="password" class="form-control" id="name" name="password_confirmation"
+                                       placeholder="Confirm Password"
                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+                                @error("password_confirmation")
+                                <p class="text-left" style="color: red">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group">
                                 <button type="submit" value="submit" class="primary-btn">Sign Up</button>

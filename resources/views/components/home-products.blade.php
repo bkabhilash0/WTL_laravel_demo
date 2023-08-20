@@ -1,4 +1,10 @@
-<!-- start product Area -->
+@php
+    use \App\Models\Product;
+
+    $products = Product::orderBy('created_at','DESC')->limit(8)->get();
+@endphp
+
+    <!-- start product Area -->
 <section class="section_gap">
     <!-- single product slide -->
     <div class="">
@@ -16,15 +22,13 @@
             </div>
             <div class="row">
                 <!-- single product -->
-                <x-product-card name="Puma Drift Cat Shoes For Men" imgUrl="img/product/p1.jpg" price="150.00"/>
-                <x-product-card  imgUrl="img/product/p2.jpg" price="150.00"/>
-                <x-product-card  imgUrl="img/product/p3.jpg" price="150.00"/>
-                <x-product-card  imgUrl="img/product/p4.jpg" price="150.00"/>
-                <x-product-card  imgUrl="img/product/p5.jpg" price="150.00"/>
-                <x-product-card  imgUrl="img/product/p6.jpg" price="150.00"/>
-                <x-product-card  imgUrl="img/product/p7.jpg" price="150.00"/>
-                <x-product-card  imgUrl="img/product/p8.jpg" price="150.00"/>
-                <!-- single product -->
+                @foreach($products as $product)
+                    <x-product-card name="{{$product->name}}"
+                                    slug="{{$product->slug}}"
+                                    imgUrl="{{$product->imageUrl ? asset($product->imageUrl) : asset('img/product/p3.jpg')}}"
+                                    price="150.00"/>
+                        @endforeach
+                        <!-- single product -->
             </div>
         </div>
     </div>
