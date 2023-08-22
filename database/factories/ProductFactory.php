@@ -18,14 +18,6 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-//        $title = fake()->sentence();
-//        $slug = Str::slug($title);
-//        return [
-//            'name' => $title,
-//            'slug' => $slug,
-//            'price' => fake()->numberBetween(100,500),
-//            'description' => fake()->text()
-//        ];
         $title = fake()->sentence();
         $slug = Str::slug($title);
         return [
@@ -33,6 +25,7 @@ class ProductFactory extends Factory
             'slug' => $slug,
             'price' => fake()->numberBetween(100, 500),
             'imageUrl' => "uploads/product_images/p2.jpg",
+            'user_id' => fake()->numberBetween(1,3),
             'description' => fake()->text()
         ];
     }

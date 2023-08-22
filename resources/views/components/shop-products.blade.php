@@ -1,7 +1,7 @@
 @php
     use \App\Models\Product;
 
-    $products = Product::limit(8)->get();
+    $products = Product::latest()->limit(8)->get();
 @endphp
 <div class="container">
     <h1 class="pt-5 text-center">OUR PRODUCTS</h1>

@@ -27,7 +27,7 @@
                                     slug="{{$product->slug}}"
                                     imgUrl="{{$product->imageUrl ? asset($product->imageUrl) : asset('img/product/p3.jpg')}}"
                                     price="150.00"/>
-                        @endforeach
+                @endforeach
                         <!-- single product -->
             </div>
         </div>
